@@ -1,6 +1,11 @@
 <?php
 require_once 'connexion.php';
 
+if (Auth::isAuthenticated()) {
+    header('Location: index.php');
+    exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];

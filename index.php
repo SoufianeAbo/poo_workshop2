@@ -23,3 +23,7 @@ foreach ($books as $book) {
 }
 
 ?>
+
+<form method="post" action="logout.php">
+    <button type="submit">Logout</button>
+</form>

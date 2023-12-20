@@ -3,6 +3,11 @@
 require_once 'connexion.php';
 require_once 'BookDAO.php';
 
+if (!Auth::isAuthenticated()) {
+    header('Location: login.php');
+    exit();
+}
+
 $db = Database::getInstance();
 $bookDAO = new BookDAO($db);
 

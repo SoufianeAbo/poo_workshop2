@@ -21,4 +21,28 @@ class Database {
         return $this->connection;
     }
 }
+
+class Auth {
+    public static function login($username, $password) {
+        if ($username === 'admin' && $password === 'azerty123') {
+            session_start();
+            $_SESSION['authenticated'] = true;
+            $_SESSION['username'] = $username;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function logout() {
+        session_start();
+        session_destroy();
+        header('Location: login.php');
+    }
+
+    public static function isAuthenticated() {
+        session_start();
+        return isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true;
+    }
+}
 ?>

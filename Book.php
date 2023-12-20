@@ -14,7 +14,7 @@ class Book {
         $this->price = $price;
         $this->pages = $pages;
         $this->author = $author;
-    }
+    }   
 
     public function getIsbn() {
         return $this->isbn;

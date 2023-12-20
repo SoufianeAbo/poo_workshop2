@@ -19,12 +19,5 @@ class BookDAO {
 
         return $books;
     }
-
-    public function createBook(Book $book) {
-        $query = "INSERT INTO BOOK (ISBN, Title, Genra, Price, NbrofPages, Author) VALUES (?, ?, ?, ?, ?, ?)";
-        $stmt = $this->db->getConnection()->prepare($query);
-
-        $stmt->execute([$book->getIsbn(), $book->getTitle(), $book->getGenre(), $book->getPrice(), $book->getPages(), $book->getAuthor()]);
-    }
 }
 ?>
